@@ -22,7 +22,7 @@ References: "p." means the PDF page index, which can differ from the footer slid
 | Ch5 IOT001TC Arduino_Tinkercad_AY26_27_V1.pptx | Arduino Uno + Tinkercad: LED, button with pull-down, traffic light | High |
 | Ch6 IOT001TC IoT Components-1 (Sensors)-AY25_26-V1.pptx | Device building blocks, analog vs digital sensors, terminology, ADC/PWM | **High** |
 | Ch7 IOT001TC Basic_Electronic_Circuit_2_AY26_27_V1.pdf | Ohm/KCL/KVL, voltage divider (photoresistor example), LED resistor | **High** |
-| IoT Components Sensors Week 6_21Oct2026.pdf | Guest sensor lecture (Dr Ateeq): sensor definitions, AIoT+X framework, research | Med |
+| IoT Components Sensors Week 6_21Oct2026.pdf | Guest sensor lecture: sensor definitions, AIoT+X framework, research | Med |
 | IOT001TC_RLPBL_Topics_AY2627.pdf | 14 topics + inquiry prompts | Med |
 | Artifact 1/2/3 [Template] + [Example].docx | Seminar artifacts (A08 "Bin Sight" example) | Med (Art. 3 AI declaration) |
 | W3–W7 LIFE seminar PDFs | Problem, stakeholders, evidence/AI, data collection/analysis | Med (W5 AI rules, W6 survey wording, W7 declaration) |
@@ -75,7 +75,7 @@ References: "p." means the PDF page index, which can differ from the footer slid
 
 ## 4. Labs, kits, equipment, sessions
 
-- Tutorials (LIFE, Dr Ying Zhou) run **Mondays** 11–12, 12–13, 16–17, 17–18 (Ch1 p.2). Lectures run Wednesday 14:00–16:00 / 16:00–18:00 (Ch1 p.2; Week 1 p.3 says "Wed 2-4 pm").
+- Tutorials (LIFE) run **Mondays** 11–12, 12–13, 16–17, 17–18 (Ch1 p.2). Lectures run Wednesday 14:00–16:00 / 16:00–18:00 (Ch1 p.2; Week 1 p.3 says "Wed 2-4 pm").
 - No file mentions Arduino kits being handed out, hardware borrowing, assembly in class or soldering. Ch5 s.12: Tinkercad means "No physical kit is required at the beginning". s.15: the breadboard allows building "without soldering". Ch2 p.27 shows micro:bit + Motor:bit but says "we will use a simulation rather than a hardware component". Week 1 p.11: each group brings 1–2 digital devices (laptop/iPad). Ch4 p.37 and Ch7 p.42 refer to "future IoT labs" without details [?].
 
 ## 5. Assessment hints
