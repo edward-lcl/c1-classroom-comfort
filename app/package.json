@@ -1,0 +1,23 @@
+{
+  "name": "c1-classroom-comfort",
+  "version": "0.1.0",
+  "private": true,
+  "description": "C1 classroom comfort prototype: Arduino sensor bridge, QR feedback form and staff dashboard (student demo, not an official campus service).",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "demo": "node src/server.js --sensors=simulated",
+    "fake-uno": "node tools/fake-uno.js | node src/server.js --serial=stdin",
+    "list-ports": "node tools/list-ports.js",
+    "reset-demo": "node tools/reset-data.js demo",
+    "test": "node --test test/"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@serialport/parser-readline": "13.0.0",
+    "qrcode": "1.5.4",
+    "serialport": "13.0.0"
+  }
+}

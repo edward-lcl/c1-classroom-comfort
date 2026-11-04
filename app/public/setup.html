@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en" data-theme="dark" data-title-key="su.title">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>C1 hardware setup</title>
+  <link rel="stylesheet" href="/static/dashboard.css">
+  <link rel="stylesheet" href="/static/setup.css">
+  <script src="/static/theme.js"></script>
+  <script src="/static/i18n.js"></script>
+</head>
+<body>
+  <div class="page setup">
+    <header class="head">
+      <div class="title">
+        <a class="back" href="/" data-i18n="su.back">← Dashboard</a>
+        <h1 data-i18n="su.h1">Hardware setup</h1>
+        <span id="progress" class="verdict none"></span>
+      </div>
+      <div class="tools">
+        <div class="group">
+          <div class="seg langseg" role="group" aria-label="Language / 语言">
+            <button type="button" data-lang="en" lang="en">EN</button>
+            <button type="button" data-lang="zh" lang="zh-CN">中</button>
+          </div>
+          <button id="themeBtn" class="pill btn icon" type="button" aria-label="Light / dark">◐</button>
+        </div>
+      </div>
+    </header>
+
+    <p class="note safety" data-i18n="su.safety">Unplug USB before changing any wiring. Check every connection against the diagram before plugging back in.</p>
+
+    <ol class="steps" id="steps">
+      <li class="step" data-step="usb">
+        <div class="step-head"><span class="num">1</span><h2 data-i18n="su.usb.t">Plug the UNO into this laptop</h2><span class="state"></span></div>
+        <p class="muted" data-i18n="su.usb.d">Use the blue USB cable from the kit (a data cable). Close Arduino IDE's Serial Monitor — only one program can use the port.</p>
+        <p class="live"></p>
+      </li>
+      <li class="step" data-step="sketch">
+        <div class="step-head"><span class="num">2</span><h2 data-i18n="su.sketch.t">Upload the C1 sketch</h2><span class="state"></span></div>
+        <p class="muted" data-i18n="su.sketch.d">Arduino IDE → open arduino/c1_station → Tools › Board › Arduino Uno → Tools › Port → Upload. Close the IDE's Serial Monitor afterwards.</p>
+        <p class="live"></p>
+      </li>
+      <li class="step" data-step="ldr">
+        <div class="step-head"><span class="num">3</span><h2 data-i18n="su.ldr.t">Photoresistor on A1</h2><span class="state"></span></div>
+        <p class="muted" data-i18n="su.ldr.d">Wire it as shown, then cover the sensor with your hand and shine a phone torch on it. The step passes when the reading moves by at least 150.</p>
+        <div class="meter"><span class="meter-fill"></span><span class="meter-range"></span></div>
+        <p class="live"></p>
+        <figure class="diagram"><img src="/static/wiring/breadboard-analog.svg" alt="Breadboard wiring for photoresistor and LM35"></figure>
+        <figure class="diagram"><img src="/static/wiring/schematics.svg" alt="Schematics"></figure>
+      </li>
+      <li class="step" data-step="lm35">
+        <div class="step-head"><span class="num">4</span><h2 data-i18n="su.lm35.t">LM35 temperature sensor on A0</h2><span class="state"></span></div>
+        <p class="muted" data-i18n="su.lm35.d">Flat printed face toward you: left leg 5V, middle A0, right GND (same breadboard picture as step 3). If it gets hot, unplug immediately — it is reversed.</p>
+        <p class="live"></p>
+      </li>
+      <li class="step" data-step="i2c">
+        <div class="step-head"><span class="num">5</span><h2 data-i18n="su.i2c.t">ENS160 + AHT21 module (after soldering and checks)</h2><span class="state"></span></div>
+        <p class="muted" data-i18n="su.i2c.d">Do the multimeter checks in docs/HARDWARE_GUIDE.md §3 first. Then run arduino/i2c_scanner (expect 0x38 and 0x53 or 0x52) and set ENABLE_AHT20 and ENABLE_ENS160 to 1 in the sketch.</p>
+        <p class="live"></p>
+        <figure class="diagram"><img src="/static/wiring/ens160-aht21-i2c.svg" alt="ENS160 module wiring"></figure>
+      </li>
+      <li class="step" data-step="phone">
+        <div class="step-head"><span class="num">6</span><h2 data-i18n="su.phone.t">Test the QR code with a second phone</h2><span class="state"></span></div>
+        <p class="muted" data-i18n="su.phone.d">Open the QR page, scan it with a phone on the same Wi-Fi or hotspot, and send one test response. It passes when feedback arrives.</p>
+        <p><a class="pill btn" href="/qr" target="_blank" data-i18n="su.openQr">Open QR page</a></p>
+        <p class="live"></p>
+      </li>
+    </ol>
+
+    <details class="card how">
+      <summary data-i18n="su.overview">System overview diagram</summary>
+      <figure class="diagram"><img src="/static/wiring/system-overview.svg" alt="System overview"></figure>
+    </details>
+  </div>
+  <script src="/static/setup.js"></script>
+</body>
+</html>

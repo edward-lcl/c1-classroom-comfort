@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en" data-title-key="form.title">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Classroom comfort feedback</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <script src="/static/i18n.js"></script>
+</head>
+<body class="form-page">
+  <main class="form-wrap">
+    <header>
+      <div class="form-top">
+        <p class="eyebrow" data-i18n="form.eyebrow">Student prototype (Group C1)</p>
+        <div class="lang-seg" role="group" aria-label="Language / 语言"><button type="button" data-lang="en" lang="en">EN</button><button type="button" data-lang="zh" lang="zh-CN">中</button></div>
+      </div>
+      <h1 data-i18n="form.h1">How does this classroom feel?</h1>
+      <p class="room" id="room"></p>
+    </header>
+
+    <p class="notice" data-i18n="form.notice"></p>
+
+    <form id="form" novalidate>
+      <fieldset>
+        <legend data-i18n="form.temp">Temperature</legend>
+        <div class="choices">
+          <label><input type="radio" name="temp" value="cold"><span data-i18n="form.cold"></span></label>
+          <label><input type="radio" name="temp" value="ok"><span data-i18n="form.ok"></span></label>
+          <label><input type="radio" name="temp" value="hot"><span data-i18n="form.hot"></span></label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend data-i18n="form.air">Air</legend>
+        <div class="choices">
+          <label><input type="radio" name="air" value="ok"><span data-i18n="form.airOk"></span></label>
+          <label><input type="radio" name="air" value="stuffy"><span data-i18n="form.stuffy"></span></label>
+          <label><input type="radio" name="air" value="unsure"><span data-i18n="form.unsure"></span></label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend><span data-i18n="form.light">Light</span> <small class="opt" data-i18n="form.optional"></small></legend>
+        <div class="choices">
+          <label><input type="radio" name="light" value="dark"><span data-i18n="form.dark"></span></label>
+          <label><input type="radio" name="light" value="ok"><span data-i18n="form.lightOk"></span></label>
+          <label><input type="radio" name="light" value="bright"><span data-i18n="form.bright"></span></label>
+        </div>
+      </fieldset>
+
+      <label class="comment" for="comment"><span data-i18n="form.comment">Comment</span> <small class="opt" data-i18n="form.commentOpt"></small></label>
+      <textarea id="comment" name="comment" maxlength="200" rows="2" data-i18n-ph="form.placeholder"></textarea>
+      <p class="count"><span id="count">0</span>/200</p>
+
+      <p id="msg" class="msg" role="status" aria-live="polite"></p>
+      <button id="send" type="submit" data-i18n="form.send">Send feedback</button>
+    </form>
+
+    <section id="done" class="done" hidden>
+      <h2 data-i18n="form.thanks">Thank you!</h2>
+      <p data-i18n="form.sent"></p>
+      <button id="again" type="button" class="secondary" data-i18n="form.again">Send another</button>
+    </section>
+  </main>
+  <script src="/static/feedback.js"></script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en" data-theme="dark" data-title-key="dash.title">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Example Classroom · C1 dashboard</title>
+  <link rel="stylesheet" href="/static/dashboard.css">
+  <script src="/static/theme.js"></script>
+  <script src="/static/i18n.js"></script>
+</head>
+<body>
+  <div class="page" id="page" aria-busy="true">
+
+    <header class="head">
+      <div class="title">
+        <h1 id="roomName">Example Classroom</h1>
+        <span id="verdict" class="verdict" role="status"></span>
+        <span id="modeChip" class="chip sim" hidden></span>
+      </div>
+      <div class="tools">
+        <div class="group">
+          <span id="conn" class="pill" data-tip=""><i class="dot"></i><span>…</span></span>
+          <div class="demo" data-i18n-tip="dash.demoTip">
+            <span class="demo-label" data-i18n="dash.demo">Demo</span>
+            <div id="scenarios" class="seg" role="group" aria-label="Simulated CO₂ scenario"></div>
+          </div>
+        </div>
+        <span class="divider" aria-hidden="true"></span>
+        <div class="group">
+          <a class="pill btn" href="/setup" data-i18n="dash.setup" data-i18n-tip="dash.setupTip">Setup</a>
+          <button type="button" class="pill btn" id="qrBtn" data-i18n="dash.qr" data-i18n-tip="dash.qrTip">QR</button>
+          <details class="menu">
+            <summary class="pill btn" data-i18n="dash.csv" data-i18n-tip="dash.csvTip">CSV</summary>
+            <div class="menu-pop">
+              <a href="/api/export/readings.csv" data-i18n="csv.readings">Readings</a>
+              <a href="/api/export/feedback.csv" data-i18n="csv.feedback">Feedback</a>
+              <a href="/api/export/actions.csv" data-i18n="csv.reviews">Reviews</a>
+              <a href="/api/export/events.csv" data-i18n="csv.events">Events</a>
+            </div>
+          </details>
+        </div>
+        <span class="divider" aria-hidden="true"></span>
+        <div class="group">
+          <div class="seg langseg" id="langSeg" role="group" aria-label="Language / 语言">
+            <button type="button" data-lang="en" lang="en">EN</button>
+            <button type="button" data-lang="zh" lang="zh-CN">中</button>
+          </div>
+          <button id="themeBtn" class="pill btn icon" type="button" aria-label="Light / dark" data-i18n-tip="dash.themeTip">◐</button>
+        </div>
+      </div>
+    </header>
+
+    <div id="netNote" class="note" role="status" hidden></div>
+
+    <section id="attention" class="attention" aria-live="polite"></section>
+
+    <section class="card kpis" id="kpis"></section>
+
+    <section class="main-row">
+      <section class="card chart-card">
+        <div class="chart-head">
+          <div>
+            <p class="muted small" id="chartLabel"></p>
+            <p class="chart-value"><span id="chartValue">—</span> <span class="muted" id="chartUnit"></span></p>
+          </div>
+          <div class="seg small" id="ranges" role="group">
+            <button type="button" data-min="15" data-i18n="range.15">15 min</button>
+            <button type="button" data-min="30" class="on" aria-pressed="true" data-i18n="range.30">30 min</button>
+            <button type="button" data-min="60" data-i18n="range.60">60 min</button>
+          </div>
+        </div>
+        <div id="chart" class="chart" role="img"></div>
+        <div class="legend" id="legend"></div>
+      </section>
+      <article class="card panel fb-panel">
+        <header class="panel-head"><h2 data-i18n="p.feedback">Feedback</h2><span class="muted small" id="fbTotal"></span></header>
+        <div id="fbList" class="rank"></div>
+        <header class="panel-head sub-head"><h2 data-i18n="p.comments">Comments</h2><span class="muted small" data-i18n="p.latest" data-i18n-tip="p.latestTip">latest</span></header>
+        <ul id="comments" class="rows"></ul>
+      </article>
+    </section>
+
+    <section class="panels">
+      <article class="card panel">
+        <header class="panel-head"><h2 data-i18n="p.reviews">Reviews</h2><span class="muted small" data-i18n="p.roleplay" data-i18n-tip="p.roleplayTip">role-play</span></header>
+        <ul id="actions" class="rows"></ul>
+        <header class="panel-head sub-head"><h2 data-i18n="p.earlier">Earlier alerts</h2><span class="muted small" data-i18n="p.last5">last 5</span></header>
+        <ul id="pastAlerts" class="rows"></ul>
+      </article>
+      <article class="card panel">
+        <header class="panel-head"><h2 data-i18n="p.device">Device</h2><span class="muted small" id="fw"></span></header>
+        <dl id="device" class="kv"></dl>
+      </article>
+    </section>
+
+    <details class="card how" id="how">
+      <summary data-i18n="how.title">How it works</summary>
+      <div id="flow" class="flow-wrap"></div>
+    </details>
+
+    <dialog id="qrDialog" class="qr-dialog" aria-labelledby="qrTitle">
+      <div class="qr-dialog-head">
+        <h2 id="qrTitle" data-i18n="qr.h1">Scan to give classroom feedback</h2>
+        <button type="button" class="pill btn icon" id="qrClose" data-i18n-aria="qr.close" aria-label="Close">✕</button>
+      </div>
+      <p class="muted small" data-i18n="qr.sameNet">The phone must be on the same Wi-Fi or hotspot as this laptop.</p>
+      <div id="qrCodes" class="qr-codes"></div>
+      <p class="small"><a href="/qr" target="_blank" data-i18n="qr.full">Open full page (to project or print)</a></p>
+    </dialog>
+  </div>
+
+  <div id="tip" class="tip" role="tooltip" hidden></div>
+  <script src="/static/dashboard.js"></script>
+</body>
+</html>

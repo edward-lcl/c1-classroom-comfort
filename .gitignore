@@ -1,0 +1,13 @@
+# Dependencies and runtime data (demo/test records stay on each laptop)
+node_modules/
+app/data/
+
+# Not ours to publish: downloaded university course files, and the private handoff pack
+# (team names, survey export, papers). Keep them locally only.
+course_materials/
+source_pack/
+
+# Local tooling / OS
+.claude/
+.DS_Store
+*.log

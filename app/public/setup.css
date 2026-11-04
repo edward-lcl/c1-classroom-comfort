@@ -1,0 +1,26 @@
+/* Setup page: a vertical checklist; each step has a live status chip. Uses dashboard tokens. */
+.setup { max-width: 1100px; }
+.back { font-size: 13px; color: var(--muted); text-decoration: none; margin-right: 4px; }
+.back:hover { color: var(--ink); }
+.safety { font-weight: 600; }
+.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.step { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 16px 18px; display: grid; gap: 8px; }
+.step.done { border-color: color-mix(in srgb, var(--live) 40%, var(--line)); }
+.step.problem { border-color: color-mix(in srgb, var(--warn) 60%, var(--line)); }
+.step-head { display: flex; align-items: center; gap: 12px; }
+.step-head h2 { font-size: 15px; font-weight: 600; flex: 1; }
+.num { width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; font-size: 13px; font-weight: 700; background: var(--soft); color: var(--ink-2); flex: none; }
+.step.done .num { background: var(--live); color: #fff; }
+.step.problem .num { background: var(--warn); color: #fff; }
+.state { font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 999px; border: 1px solid var(--line-strong); color: var(--muted); white-space: nowrap; }
+.step.done .state { color: var(--live); border-color: color-mix(in srgb, var(--live) 45%, transparent); }
+.step.problem .state { color: var(--warn-ink); border-color: color-mix(in srgb, var(--warn) 60%, transparent); background: color-mix(in srgb, var(--warn) 10%, transparent); }
+.step p { margin: 0; font-size: 13px; }
+.live { font-variant-numeric: tabular-nums; color: var(--ink-2); }
+.live:empty { display: none; }
+.meter { position: relative; height: 10px; border-radius: 5px; background: var(--soft); overflow: hidden; }
+.meter-fill { position: absolute; left: 0; top: 0; bottom: 0; width: 0; background: var(--accent); border-radius: 5px; transition: width .3s; }
+.meter-range { position: absolute; top: 0; bottom: 0; background: color-mix(in srgb, var(--accent) 25%, transparent); border-left: 2px solid var(--accent); border-right: 2px solid var(--accent); }
+.diagram { margin: 6px 0 0; background: #fff; border-radius: 12px; padding: 10px; overflow-x: auto; border: 1px solid var(--line); }
+.diagram img { display: block; max-width: 100%; height: auto; min-width: 560px; }
+@media (max-width: 640px) { .diagram img { min-width: 640px; } }
