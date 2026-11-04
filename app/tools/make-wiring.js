@@ -153,7 +153,7 @@ function schematics() {
   s += text(480, 140, 'Check TI datasheet figure (LP package).', { size: 11, fill: C.muted });
   s += text(480, 155, 'Reversed = gets hot within seconds.', { size: 11, fill: C.red, weight: 600 });
   s += text(340, 226, 'T(°C) = raw × 5.0 / 1024 × 100  (≈ 0.49 °C per step)', { size: 11, fill: C.muted });
-  return svg(760, 240, s, 'Schematics for photoresistor divider and LM35');
+  return svg(900, 240, s, 'Schematics for photoresistor divider and LM35');
 }
 
 // ---------- 3. ENS160+AHT21 module to UNO ----------
@@ -181,7 +181,7 @@ function i2cModule() {
   s += text(40, 282, 'Header row as printed on the module: VIN · 3V3 · GND · SCL · SDA · ADD · CS · INT (check your board — labels win over this picture).', { size: 11, fill: C.muted });
   s += text(40, 300, 'ADD: high ≈ address 0x53, low ≈ 0x52 (the sketch tries both).  CS must read high (I²C mode).  AHT21 answers at 0x38.', { size: 11, fill: C.muted });
   s += text(40, 318, 'If SDA/SCL measure ≈ 0 V with the module powered: no pull-ups — add 4.7 kΩ from SDA and SCL to 3.3 V (never to 5 V).', { size: 11, fill: C.muted });
-  return svg(820, 336, s, 'ENS160 plus AHT21 module to Arduino UNO I2C wiring');
+  return svg(900, 336, s, 'ENS160 plus AHT21 module to Arduino UNO I2C wiring');
 }
 
 // ---------- 4. System overview ----------
