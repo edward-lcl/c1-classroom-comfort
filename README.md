@@ -41,14 +41,39 @@ One classroom, a few weeks of data, and staff need to understand *why* they are 
 
 ## Screens
 
-| | |
-|---|---|
-| **Dashboard, Chinese** (EN / 中 switch on every page) ![](docs/screenshots/dashboard-zh.png) | **Light theme** ![](docs/screenshots/dashboard-light.png) |
-| **QR pop-up** for students ![](docs/screenshots/qr-popup.png) | **Hardware setup page**: live checklist with wiring diagrams ![](docs/screenshots/setup.png) |
+**Students:** scan the QR code and answer in a few taps, in English or Chinese.
 
-| Student form (EN) | Student form (中文) | Dashboard on a phone |
-|---|---|---|
-| ![](docs/screenshots/phone-form.png) | ![](docs/screenshots/phone-form-zh.png) | ![](docs/screenshots/dashboard-phone.png) |
+<p align="center">
+  <img src="docs/screenshots/phone-form.png" width="250" alt="Student feedback form in English">
+  &nbsp;&nbsp;
+  <img src="docs/screenshots/phone-form-zh.png" width="250" alt="Student feedback form in Chinese">
+  &nbsp;&nbsp;
+  <img src="docs/screenshots/dashboard-phone.png" width="250" alt="Dashboard on a phone">
+</p>
+<p align="center"><sub>Feedback form (EN) · Feedback form (中文) · Dashboard on a phone</sub></p>
+
+**Staff:** the whole dashboard switches language with the EN / 中 button.
+
+![Dashboard in Chinese](docs/screenshots/dashboard-zh.png)
+
+<details>
+<summary><b>More screens</b>: light theme, QR pop-up, hardware setup page</summary>
+
+<br>
+
+**Light theme**
+
+![Dashboard, light theme](docs/screenshots/dashboard-light.png)
+
+**QR pop-up**: shows only addresses a phone can actually reach
+
+![QR pop-up](docs/screenshots/qr-popup.png)
+
+**Hardware setup page**: a live checklist for Monday; each step turns green only from real data
+
+![Hardware setup page](docs/screenshots/setup.png)
+
+</details>
 
 ## Honest data labels
 
@@ -71,9 +96,15 @@ Parts from the Keyestudio **KS0069** kit, plus one purchased module:
 - LM35DZ temperature sensor → **A0**
 - ENS160 + AHT21 module (Mingwu) → **I²C A4/A5**, used only after the voltage checks in the hardware guide
 
-| Breadboard wiring (exact UNO pins tagged) | Circuits |
-|---|---|
-| ![](docs/wiring/breadboard-analog.svg) | ![](docs/wiring/schematics.svg) |
+**Breadboard wiring:** each wire ends on a tagged UNO pin (5V, GND, A0, A1)
+
+![Breadboard wiring](docs/wiring/breadboard-analog.svg)
+
+**Circuits**
+
+![Circuits](docs/wiring/schematics.svg)
+
+**ENS160 + AHT21 module** (only after the voltage checks)
 
 ![ENS160 module wiring](docs/wiring/ens160-aht21-i2c.svg)
 

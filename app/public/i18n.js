@@ -17,7 +17,7 @@
     'fl.person': 'A person', 'fl.personD': 'checks room · logs it',
     'fl.phone': 'Student phone', 'fl.phoneD': 'scans the QR code',
     'fl.a1': 'voltage · I²C', 'fl.a2': 'USB · 1 line / 2 s', 'fl.a3': 'live updates', 'fl.a4': '“Needs review”',
-    'fl.a5': 'feedback form · Wi-Fi', 'fl.loop': 'opens a window / asks for AC check → new readings and feedback',
+    'fl.a5': 'feedback form · Wi-Fi', 'fl.loop': 'adjusts a thermostat / opens a window / asks the teacher → new readings and feedback',
 
     'su.title': 'C1 hardware setup', 'su.back': '← Dashboard', 'su.h1': 'Hardware setup', 'su.progress': '{n} of {total} done',
     'su.safety': 'Unplug USB before changing any wiring. Check every connection against the diagram before plugging back in.',
@@ -201,7 +201,7 @@
     'fl.person': '工作人员', 'fl.personD': '检查教室并记录',
     'fl.phone': '学生手机', 'fl.phoneD': '扫描二维码',
     'fl.a1': '电压 · I²C', 'fl.a2': 'USB · 每 2 秒 1 行', 'fl.a3': '实时更新', 'fl.a4': '「需要检查」',
-    'fl.a5': '反馈表单 · Wi-Fi', 'fl.loop': '开窗 / 请人检查空调 → 新的读数和反馈',
+    'fl.a5': '反馈表单 · Wi-Fi', 'fl.loop': '调温控器 / 开窗 / 告诉老师 → 新的读数和反馈',
 
     'su.title': 'C1 硬件设置', 'su.back': '← 管理面板', 'su.h1': '硬件设置向导', 'su.progress': '已完成 {n}/{total}',
     'su.safety': '改动任何接线前先拔掉 USB。重新插上前，请对照接线图逐一检查。',

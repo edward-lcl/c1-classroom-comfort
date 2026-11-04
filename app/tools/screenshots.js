@@ -16,17 +16,17 @@ const OUT = path.join(__dirname, '..', '..', 'docs', 'screenshots');
 const BASE = 'http://localhost:3000';
 const PORT = 9333;
 
-// [file, path, width, height, fullPage]
+// [file, path, width, height, fullPage, cropToSelector]
 const SHOTS = [
   ['dashboard.png', '/', 1440, 900],
   ['dashboard-zh.png', '/?lang=zh', 1440, 900],
   ['dashboard-light.png', '/?theme=light', 1440, 900],
-  ['how-it-works.png', '/#how', 1440, 900],
+  ['how-it-works.png', '/#how', 1440, 1100, false, '#how'],
   ['qr-popup.png', '/#qr', 1440, 900],
-  ['setup.png', '/setup', 1100, 900, true],
+  ['setup.png', '/setup', 1280, 900],
   ['phone-form.png', '/feedback?room=example-room', 390, 844],
   ['phone-form-zh.png', '/feedback?room=example-room&lang=zh', 390, 844],
-  ['dashboard-phone.png', '/', 390, 844, true],
+  ['dashboard-phone.png', '/', 390, 844],
 ];
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -46,7 +46,7 @@ async function cdp(wsUrl) {
 
 async function main() {
   fs.mkdirSync(OUT, { recursive: true });
-  for (const [file, url, w, h, full] of SHOTS) {
+  for (const [file, url, w, h, full, selector] of SHOTS) {
     const profile = fs.mkdtempSync(path.join(os.tmpdir(), 'c1-shot-')); // fresh: English + dark by default
     const chrome = spawn(CHROME, ['--headless=new', '--disable-gpu', '--hide-scrollbars', '--no-first-run', `--user-data-dir=${profile}`, `--remote-debugging-port=${PORT}`, 'about:blank'], { stdio: 'ignore' });
     try {
@@ -68,6 +68,12 @@ async function main() {
         await c.send('Emulation.setDeviceMetricsOverride', { width: w, height: fullH, deviceScaleFactor: 2, mobile: w < 600 });
         await sleep(800);
         clip = { x: 0, y: 0, width: w, height: fullH, scale: 1 };
+      }
+      if (selector) {
+        const r = await c.send('Runtime.evaluate', { expression: `(() => { const e = document.querySelector('${selector}'); e.scrollIntoView(); const b = e.getBoundingClientRect(); return [b.x + scrollX, b.y + scrollY, b.width, b.height]; })()`, returnByValue: true });
+        const [x, y, cw, ch] = r.result.result.value;
+        await sleep(300);
+        clip = { x: Math.max(0, x - 8), y: Math.max(0, y - 8), width: cw + 16, height: ch + 16, scale: 1 };
       }
       const shot = await c.send('Page.captureScreenshot', { format: 'png', ...(clip ? { clip, captureBeyondViewport: true } : {}) });
       fs.writeFileSync(path.join(OUT, file), Buffer.from(shot.result.data, 'base64'));
